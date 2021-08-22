@@ -1,33 +1,49 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.IO;
 
 namespace DataStructuresandAlgorithmPrograms
 {
-    class Program
+    class InsertionSort
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Enter first word :");
-            string word1= Console.ReadLine();
-            Console.WriteLine("Enter second word :");
-            string word2 = Console.ReadLine();
-
-            char[] char1= word1.ToLower().ToCharArray();
-            char[] char2=word2.ToLower().ToCharArray();
-
-            Array.Sort(char1);
-            Array.Sort(char2);
-
-            string NewWord1 = new string(char1);
-            string NewWord2 = new string(char2);
-
-            if (NewWord1 == NewWord2)
+            int[] arr = new int[5] { 54, 35, 8, 6, 41 };
+            int i;
+            Console.WriteLine("The Array is :");
+            for (i = 0; i < 5; i++)
             {
-                Console.WriteLine("yes words \"{0}\" and \"{1}\" are Anagrams", word1, word2);
+                Console.WriteLine(arr[i]);
             }
-            else
+            insertsort(arr, 5);
+            Console.WriteLine("The Sorted Array is :");
+            for (i = 0; i < 5; i++)     
+               Console.WriteLine(arr[i]);
+                Console.ReadLine();
+            }
+            static void insertsort(int[] data, int n)
             {
-                Console.WriteLine("No words \"{0}\" and \"{1}\" are Not Anagrams", word1,word2);
+                int i, j;
+                for (i = 1; i < n; i++)
+                {
+                    int item = data[i];
+                    int ins = 0;
+                    for (j = i - 1; j >= 0 && ins != 1;)
+                    {
+                        if (item < data[j])
+                        {
+                            data[j + 1] = data[j];
+                            j--;
+                            data[j + 1] = item;
+                        }
+                        else ins = 1;
+                    }
+                }
+
             }
         }
     }
-}
+
+             
