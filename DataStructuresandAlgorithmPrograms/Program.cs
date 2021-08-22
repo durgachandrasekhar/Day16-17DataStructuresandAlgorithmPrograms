@@ -1,49 +1,40 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.IO;
 
 namespace DataStructuresandAlgorithmPrograms
 {
-    class InsertionSort
+    class BubbleSort
     {
         static void Main(string[] args)
         {
-            int[] arr = new int[5] { 54, 35, 8, 6, 41 };
-            int i;
+            int[] a = { 54, 35, 8, 6, 41 };
+            int t;
             Console.WriteLine("The Array is :");
-            for (i = 0; i < 5; i++)
+            for (int i = 0; i < a.Length; i++)
             {
-                Console.WriteLine(arr[i]);
+                Console.WriteLine(a[i]);
             }
-            insertsort(arr, 5);
-            Console.WriteLine("The Sorted Array is :");
-            for (i = 0; i < 5; i++)     
-               Console.WriteLine(arr[i]);
-                Console.ReadLine();
-            }
-            static void insertsort(int[] data, int n)
+
+            for (int j = 0; j < a.Length - 2; j++)
             {
-                int i, j;
-                for (i = 1; i < n; i++)
+                for (int i = 0; i < a.Length - 2; i++)
                 {
-                    int item = data[i];
-                    int ins = 0;
-                    for (j = i - 1; j >= 0 && ins != 1;)
+                    if (a[i] > a[i + 1])
                     {
-                        if (item < data[j])
-                        {
-                            data[j + 1] = data[j];
-                            j--;
-                            data[j + 1] = item;
-                        }
-                        else ins = 1;
+                        t = a[i + 1];
+                        a[i + 1] = a[i];
+                        a[i] = t;
                     }
                 }
-
             }
+            Console.WriteLine("The Sorted Array :");
+            foreach (int aray in a)
+                Console.Write(aray + " ");
+            Console.ReadLine();
         }
     }
+}
+
+
+
 
              
