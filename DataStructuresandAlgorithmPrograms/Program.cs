@@ -1,14 +1,14 @@
 ﻿using System;
 
-namespace Banking
+namespace Calendar
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Simulate Banking Cash Counter");
-            CashCounter<string> BC1 = new CashCounter<string>();
-            BC1.CashCounter();
+            Console.WriteLine("This is Calender Problem");
+            Calenda c = new Calenda();
+            c.FindCalendar();
         }
     }
 }
